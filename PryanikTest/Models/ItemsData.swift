@@ -7,21 +7,21 @@
 
 import Foundation
 
-struct ItemsData {
+struct ItemsData: Decodable {
     let data: [Data]
     let view: [String]
     
-    struct Data {
+    struct Data: Decodable {
         let name: String
-        let itemData: ItemData
+        let data: ItemData
         
-        struct ItemData {
-            let url: String
-            let text: String
-            let selectedId: Int
-            let variants: [Variant]
+        struct ItemData: Decodable {
+            let url: String?
+            let text: String?
+            let selectedId: Int?
+            let variants: [Variant]?
             
-            struct Variant {
+            struct Variant: Decodable {
                 let id: Int
                 let text: String
             }
