@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/*/*/
 struct ItemsData {
     let data: [Data]
     let view: [String]
