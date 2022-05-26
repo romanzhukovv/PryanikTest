@@ -8,22 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		FCF12ED0283FEAB400E0E295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF12ECF283FEAB400E0E295 /* AppDelegate.swift */; };
-		FCF12ED2283FEAB400E0E295 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF12ED1283FEAB400E0E295 /* SceneDelegate.swift */; };
-		FCF12ED4283FEAB400E0E295 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF12ED3283FEAB400E0E295 /* ViewController.swift */; };
-		FCF12ED7283FEAB400E0E295 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF12ED5283FEAB400E0E295 /* Main.storyboard */; };
+		FCF12ED4283FEAB400E0E295 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF12ED3283FEAB400E0E295 /* ItemListViewController.swift */; };
 		FCF12ED9283FEAB500E0E295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF12ED8283FEAB500E0E295 /* Assets.xcassets */; };
 		FCF12EDC283FEAB500E0E295 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF12EDA283FEAB500E0E295 /* LaunchScreen.storyboard */; };
+		FCF12EE8283FF1E400E0E295 /* ItemsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF12EE7283FF1E400E0E295 /* ItemsData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FCF12ECC283FEAB400E0E295 /* PryanikTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PryanikTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF12ECF283FEAB400E0E295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FCF12ED1283FEAB400E0E295 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FCF12ED3283FEAB400E0E295 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FCF12ED6283FEAB400E0E295 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FCF12ED3283FEAB400E0E295 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		FCF12ED8283FEAB500E0E295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCF12EDB283FEAB500E0E295 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCF12EDD283FEAB500E0E295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCF12EE7283FF1E400E0E295 /* ItemsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +54,46 @@
 		FCF12ECE283FEAB400E0E295 /* PryanikTest */ = {
 			isa = PBXGroup;
 			children = (
-				FCF12ECF283FEAB400E0E295 /* AppDelegate.swift */,
-				FCF12ED1283FEAB400E0E295 /* SceneDelegate.swift */,
-				FCF12ED3283FEAB400E0E295 /* ViewController.swift */,
-				FCF12ED5283FEAB400E0E295 /* Main.storyboard */,
-				FCF12ED8283FEAB500E0E295 /* Assets.xcassets */,
+				FCF12EE5283FF13700E0E295 /* SupportingFiles */,
+				FCF12EE6283FF16E00E0E295 /* Models */,
+				FCF12EE4283FF11800E0E295 /* View */,
+				FCF12EE3283FF10B00E0E295 /* Resources */,
 				FCF12EDA283FEAB500E0E295 /* LaunchScreen.storyboard */,
-				FCF12EDD283FEAB500E0E295 /* Info.plist */,
 			);
 			path = PryanikTest;
+			sourceTree = "<group>";
+		};
+		FCF12EE3283FF10B00E0E295 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FCF12ED8283FEAB500E0E295 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FCF12EE4283FF11800E0E295 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FCF12ED3283FEAB400E0E295 /* ItemListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FCF12EE5283FF13700E0E295 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				FCF12ECF283FEAB400E0E295 /* AppDelegate.swift */,
+				FCF12EDD283FEAB500E0E295 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		FCF12EE6283FF16E00E0E295 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FCF12EE7283FF1E400E0E295 /* ItemsData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +156,6 @@
 			files = (
 				FCF12EDC283FEAB500E0E295 /* LaunchScreen.storyboard in Resources */,
 				FCF12ED9283FEAB500E0E295 /* Assets.xcassets in Resources */,
-				FCF12ED7283FEAB400E0E295 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +166,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCF12ED4283FEAB400E0E295 /* ViewController.swift in Sources */,
+				FCF12EE8283FF1E400E0E295 /* ItemsData.swift in Sources */,
+				FCF12ED4283FEAB400E0E295 /* ItemListViewController.swift in Sources */,
 				FCF12ED0283FEAB400E0E295 /* AppDelegate.swift in Sources */,
-				FCF12ED2283FEAB400E0E295 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FCF12ED5283FEAB400E0E295 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FCF12ED6283FEAB400E0E295 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FCF12EDA283FEAB500E0E295 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,7 +314,7 @@
 				INFOPLIST_FILE = PryanikTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -306,7 +326,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -322,7 +342,7 @@
 				INFOPLIST_FILE = PryanikTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -334,7 +354,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
