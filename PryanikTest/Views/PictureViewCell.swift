@@ -38,4 +38,20 @@ class PictureViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }}
+    }
+}
+
+extension PictureViewCell {
+    func configureCell(item: ContentData) {
+        guard let url = URL(string: item.data.url ?? "") else { return }
+        
+        NetworkManager.shared.fetchImage(from: url) { result in
+            switch result {
+            case .success(let data):
+                <#code#>
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+}

@@ -41,7 +41,7 @@ class ItemListViewController: UITableViewController {
         
         guard let itemsData = itemsData else { return UITableViewCell() }
         
-        var items: [Data] = []
+        var items: [ContentData] = []
         
         for index in itemsData.view {
             for item in itemsData.data {

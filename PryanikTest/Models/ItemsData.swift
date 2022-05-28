@@ -8,11 +8,11 @@
 import Foundation
 
 struct ItemsData: Decodable {
-    let data: [Data]
+    let data: [ContentData]
     let view: [String]
 }
 
-struct Data: Decodable {
+struct ContentData: Decodable {
     let name: String
     let data: ItemData
 }
