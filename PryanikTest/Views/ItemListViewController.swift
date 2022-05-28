@@ -13,8 +13,12 @@ class ItemListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupNavigationBar()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        tableView.register(HzViewCell.self, forCellReuseIdentifier: "hz")
+        tableView.register(PictureViewCell.self, forCellReuseIdentifier: "picture")
+        tableView.register(SelectorViewCell.self, forCellReuseIdentifier: "selector")
         
         NetworkManager.shared.fetchData { result in
             switch result {
@@ -33,7 +37,7 @@ class ItemListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         guard let itemsData = itemsData else { return UITableViewCell() }
         
@@ -48,8 +52,23 @@ class ItemListViewController: UITableViewController {
         }
         
         let item = items[indexPath.row]
-        cell.textLabel?.text = item.name
-        return cell
+        
+        if item.name == "hz" {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "hz") as! HzViewCell
+            cell.nameLabel.text = item.data.text
+            return cell
+        } else if item.name == "picture" {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "picture") as! PictureViewCell
+            cell.nameLabel.text = item.data.text
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "selector") as! SelectorViewCell
+            cell.nameLabel.text = item.name
+            return cell
+        }
+        
+//        cell.textLabel?.text = item.name
+//        return cell
     }
 }
 

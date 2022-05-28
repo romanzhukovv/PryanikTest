@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		11BC841FA29A757DBE6977A4 /* Pods_PryanikTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7D3ED6A507FCC0670D2E89 /* Pods_PryanikTest.framework */; };
+		FC330756284273FA00A1ECB8 /* HzViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC330755284273FA00A1ECB8 /* HzViewCell.swift */; };
+		FC3307582842740F00A1ECB8 /* PictureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3307572842740F00A1ECB8 /* PictureViewCell.swift */; };
+		FC33075A2842743E00A1ECB8 /* SelectorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3307592842743E00A1ECB8 /* SelectorViewCell.swift */; };
 		FC59F909283FF73F0075EFB5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC59F908283FF73F0075EFB5 /* NetworkManager.swift */; };
 		FCF12ED0283FEAB400E0E295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF12ECF283FEAB400E0E295 /* AppDelegate.swift */; };
 		FCF12ED4283FEAB400E0E295 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF12ED3283FEAB400E0E295 /* ItemListViewController.swift */; };
@@ -20,6 +23,9 @@
 		506B3F6199EF5D31F457C00C /* Pods-PryanikTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PryanikTest.debug.xcconfig"; path = "Target Support Files/Pods-PryanikTest/Pods-PryanikTest.debug.xcconfig"; sourceTree = "<group>"; };
 		CD7A5D63B14980311763BD95 /* Pods-PryanikTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PryanikTest.release.xcconfig"; path = "Target Support Files/Pods-PryanikTest/Pods-PryanikTest.release.xcconfig"; sourceTree = "<group>"; };
 		EF7D3ED6A507FCC0670D2E89 /* Pods_PryanikTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PryanikTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC330755284273FA00A1ECB8 /* HzViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HzViewCell.swift; sourceTree = "<group>"; };
+		FC3307572842740F00A1ECB8 /* PictureViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureViewCell.swift; sourceTree = "<group>"; };
+		FC3307592842743E00A1ECB8 /* SelectorViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorViewCell.swift; sourceTree = "<group>"; };
 		FC59F908283FF73F0075EFB5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FCF12ECC283FEAB400E0E295 /* PryanikTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PryanikTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF12ECF283FEAB400E0E295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,7 +97,7 @@
 				FC59F907283FF7230075EFB5 /* Services */,
 				FCF12EE5283FF13700E0E295 /* SupportingFiles */,
 				FCF12EE6283FF16E00E0E295 /* Models */,
-				FCF12EE4283FF11800E0E295 /* View */,
+				FCF12EE4283FF11800E0E295 /* Views */,
 				FCF12EE3283FF10B00E0E295 /* Resources */,
 				FCF12EDA283FEAB500E0E295 /* LaunchScreen.storyboard */,
 			);
@@ -106,12 +112,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		FCF12EE4283FF11800E0E295 /* View */ = {
+		FCF12EE4283FF11800E0E295 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				FCF12ED3283FEAB400E0E295 /* ItemListViewController.swift */,
+				FC330755284273FA00A1ECB8 /* HzViewCell.swift */,
+				FC3307572842740F00A1ECB8 /* PictureViewCell.swift */,
+				FC3307592842743E00A1ECB8 /* SelectorViewCell.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FCF12EE5283FF13700E0E295 /* SupportingFiles */ = {
@@ -247,7 +256,10 @@
 			files = (
 				FC59F909283FF73F0075EFB5 /* NetworkManager.swift in Sources */,
 				FCF12EE8283FF1E400E0E295 /* ItemsData.swift in Sources */,
+				FC33075A2842743E00A1ECB8 /* SelectorViewCell.swift in Sources */,
 				FCF12ED4283FEAB400E0E295 /* ItemListViewController.swift in Sources */,
+				FC3307582842740F00A1ECB8 /* PictureViewCell.swift in Sources */,
+				FC330756284273FA00A1ECB8 /* HzViewCell.swift in Sources */,
 				FCF12ED0283FEAB400E0E295 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
