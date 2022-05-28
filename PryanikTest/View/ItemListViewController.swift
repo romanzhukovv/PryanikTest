@@ -20,7 +20,8 @@ class ItemListViewController: UITableViewController {
             switch result {
             case .success(let data):
                 self.itemsData = data
-                print(self.itemsData)
+                self.tableView.reloadData()
+//                print(self.itemsData)
             case .failure(let error):
                 print(error)
             }
@@ -28,12 +29,26 @@ class ItemListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        itemsData?.view.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "fsdfsdf"
+        
+        guard let itemsData = itemsData else { return UITableViewCell() }
+        
+        var items: [Data] = []
+        
+        for index in itemsData.view {
+            for item in itemsData.data {
+                if index == item.name {
+                    items.append(item)
+                }
+            }
+        }
+        
+        let item = items[indexPath.row]
+        cell.textLabel?.text = item.name
         return cell
     }
 }
