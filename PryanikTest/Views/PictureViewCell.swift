@@ -15,18 +15,29 @@ class PictureViewCell: UITableViewCell {
         return label
     }()
     
+    let pryanikImage = UIImageView()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        pryanikImage.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(nameLabel)
+        contentView.addSubview(pryanikImage)
         
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
             nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15)
+        ])
+        
+        NSLayoutConstraint.activate([
+            pryanikImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            pryanikImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            pryanikImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            pryanikImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15)
         ])
     }
     
@@ -48,7 +59,7 @@ extension PictureViewCell {
         NetworkManager.shared.fetchImage(from: url) { result in
             switch result {
             case .success(let data):
-                <#code#>
+                self.pryanikImage.image = UIImage(data: data)
             case .failure(let error):
                 print(error)
             }

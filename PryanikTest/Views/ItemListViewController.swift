@@ -60,6 +60,7 @@ class ItemListViewController: UITableViewController {
         } else if item.name == "picture" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "picture") as! PictureViewCell
             cell.nameLabel.text = item.data.text
+            cell.configureCell(item: item)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "selector") as! SelectorViewCell
