@@ -20,16 +20,7 @@ class ItemListViewController: UITableViewController {
         tableView.register(PictureViewCell.self, forCellReuseIdentifier: "picture")
         tableView.register(SelectorViewCell.self, forCellReuseIdentifier: "selector")
         
-        NetworkManager.shared.fetchData { result in
-            switch result {
-            case .success(let data):
-                self.itemsData = data
-                self.tableView.reloadData()
-//                print(self.itemsData)
-            case .failure(let error):
-                print(error)
-            }
-        }
+        fetchItems()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,8 +28,6 @@ class ItemListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
         guard let itemsData = itemsData else { return UITableViewCell() }
         
         var items: [ContentData] = []
@@ -59,23 +48,35 @@ class ItemListViewController: UITableViewController {
             return cell
         } else if item.name == "picture" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "picture") as! PictureViewCell
-            cell.nameLabel.text = item.data.text
             cell.configureCell(item: item)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "selector") as! SelectorViewCell
-            cell.nameLabel.text = item.name
+            cell.configureCell(item: item)
             return cell
         }
-        
-//        cell.textLabel?.text = item.name
-//        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 extension ItemListViewController {
-    func setupNavigationBar() {
+    private func setupNavigationBar() {
         title = "Items"
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func fetchItems() {
+        NetworkManager.shared.fetchData { result in
+            switch result {
+            case .success(let data):
+                self.itemsData = data
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

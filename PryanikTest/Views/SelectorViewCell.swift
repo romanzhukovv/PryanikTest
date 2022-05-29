@@ -9,25 +9,8 @@ import UIKit
 
 class SelectorViewCell: UITableViewCell {
     
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
-        return label
-    }()
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        contentView.addSubview(nameLabel)
-        
-        NSLayoutConstraint.activate([
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15)
-        ])
     }
     
     required init?(coder: NSCoder) {
@@ -38,5 +21,30 @@ class SelectorViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+}
+
+extension SelectorViewCell {
+    func configureCell(item: ContentData) {
+        var selectorVariants = [String]()
+        
+        for variant in item.data.variants ?? [] {
+            selectorVariants.append(variant.text)
+        }
+        
+        let segmentedControl = UISegmentedControl(items: selectorVariants)
+        segmentedControl.selectedSegmentIndex = (item.data.selectedId ?? 0) - 1
+        segmentedControl.autoresizingMask = .flexibleWidth
+        
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        contentView.addSubview(segmentedControl)
+        
+        NSLayoutConstraint.activate([
+            segmentedControl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            segmentedControl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            segmentedControl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            segmentedControl.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15)
+        ])
     }
 }

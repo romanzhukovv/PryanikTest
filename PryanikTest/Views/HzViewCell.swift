@@ -19,7 +19,7 @@ class HzViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        
+        nameLabel.numberOfLines = 0
         contentView.addSubview(nameLabel)
         
         NSLayoutConstraint.activate([

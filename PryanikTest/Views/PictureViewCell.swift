@@ -54,9 +54,7 @@ class PictureViewCell: UITableViewCell {
 
 extension PictureViewCell {
     func configureCell(item: ContentData) {
-        guard let url = URL(string: item.data.url ?? "") else { return }
-        
-        NetworkManager.shared.fetchImage(from: url) { result in
+        NetworkManager.shared.fetchImage(from: item.data.url ?? "") { result in
             switch result {
             case .success(let data):
                 self.pryanikImage.image = UIImage(data: data)
@@ -64,5 +62,7 @@ extension PictureViewCell {
                 print(error)
             }
         }
+        
+        nameLabel.text = item.data.text
     }
 }
