@@ -16,12 +16,6 @@ class SelectorViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 }
 
 extension SelectorViewCell {
@@ -35,10 +29,28 @@ extension SelectorViewCell {
         let segmentedControl = UISegmentedControl(items: selectorVariants)
         segmentedControl.selectedSegmentIndex = (item.data.selectedId ?? 0) - 1
         segmentedControl.autoresizingMask = .flexibleWidth
-        
-        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.addTarget(self, action: #selector(selectorAction(_:)), for: .valueChanged)
         
         contentView.addSubview(segmentedControl)
+        
+        addConstraints(segmentedControl: segmentedControl)
+    }
+    
+    @objc private func selectorAction(_ segmentedControl: UISegmentedControl) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            print("1")
+        case 1:
+            print("2")
+        case 2:
+            print("3")
+        default:
+            break
+        }
+    }
+    
+    private func addConstraints(segmentedControl: UISegmentedControl) {
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             segmentedControl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),

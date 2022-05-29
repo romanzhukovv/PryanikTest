@@ -11,8 +11,11 @@ class ItemListViewController: UITableViewController {
 
     private var itemsData: ItemsData?
     
+    private var items: [ContentData] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupNavigationBar()
         
         tableView.register(HzViewCell.self, forCellReuseIdentifier: "hz")
@@ -28,8 +31,6 @@ class ItemListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let itemsData = itemsData else { return UITableViewCell() }
-        
-        var items: [ContentData] = []
         
         for index in itemsData.view {
             for item in itemsData.data {
@@ -58,6 +59,7 @@ class ItemListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        print(items[indexPath.row].name)
     }
 }
 

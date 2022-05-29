@@ -9,47 +9,20 @@ import UIKit
 
 class PictureViewCell: UITableViewCell {
     
-    private let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
-        return label
-    }()
-    
+    private let nameLabel = UILabel()
     private let pryanikImage = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        pryanikImage.translatesAutoresizingMaskIntoConstraints = false
 
         contentView.addSubview(pryanikImage)
         contentView.addSubview(nameLabel)
         
-        NSLayoutConstraint.activate([
-            pryanikImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            pryanikImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-            pryanikImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
-            pryanikImage.widthAnchor.constraint(equalToConstant: contentView.bounds.size.width / 4),
-            pryanikImage.widthAnchor.constraint(equalTo: pryanikImage.heightAnchor, multiplier: 1)
-        ])
-
-        NSLayoutConstraint.activate([
-            nameLabel.leadingAnchor.constraint(equalTo: pryanikImage.trailingAnchor, constant: 20),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20),
-            nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-        ])
-
+        addConstraits()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 }
 
@@ -65,5 +38,22 @@ extension PictureViewCell {
         }
         
         nameLabel.text = item.data.text
+    }
+    
+    private func addConstraits() {
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        pryanikImage.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            pryanikImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            pryanikImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
+            pryanikImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            pryanikImage.widthAnchor.constraint(equalToConstant: contentView.bounds.size.width / 4),
+            pryanikImage.widthAnchor.constraint(equalTo: pryanikImage.heightAnchor, multiplier: 1),
+            
+            nameLabel.leadingAnchor.constraint(equalTo: pryanikImage.trailingAnchor, constant: 20),
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20),
+            nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ])
     }
 }

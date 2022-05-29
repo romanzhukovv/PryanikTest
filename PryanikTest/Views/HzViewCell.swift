@@ -9,18 +9,29 @@ import UIKit
 
 class HzViewCell: UITableViewCell {
     
-    private let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
-        return label
-    }()
+    private let nameLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.numberOfLines = 0
+        
         contentView.addSubview(nameLabel)
+        
+        addConstraits()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension HzViewCell {
+    func configureCell(item: ContentData) {
+        nameLabel.text = item.data.text
+    }
+    
+    private func addConstraits() {
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
@@ -28,21 +39,5 @@ class HzViewCell: UITableViewCell {
             nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15)
         ])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-}
-
-extension HzViewCell {
-    func configureCell(item: ContentData) {
-        nameLabel.text = item.data.text
     }
 }
