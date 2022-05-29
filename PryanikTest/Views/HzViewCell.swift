@@ -9,7 +9,7 @@ import UIKit
 
 class HzViewCell: UITableViewCell {
     
-    let nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
         return label
@@ -38,5 +38,11 @@ class HzViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+}
+
+extension HzViewCell {
+    func configureCell(item: ContentData) {
+        nameLabel.text = item.data.text
     }
 }

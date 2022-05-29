@@ -9,36 +9,37 @@ import UIKit
 
 class PictureViewCell: UITableViewCell {
     
-    let nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
         return label
     }()
     
-    let pryanikImage = UIImageView()
+    private let pryanikImage = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         pryanikImage.translatesAutoresizingMaskIntoConstraints = false
-        
-        contentView.addSubview(nameLabel)
+
         contentView.addSubview(pryanikImage)
-        
-        NSLayoutConstraint.activate([
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15)
-        ])
+        contentView.addSubview(nameLabel)
         
         NSLayoutConstraint.activate([
             pryanikImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             pryanikImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-            pryanikImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            pryanikImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15)
+            pryanikImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            pryanikImage.widthAnchor.constraint(equalToConstant: contentView.bounds.size.width / 4),
+            pryanikImage.widthAnchor.constraint(equalTo: pryanikImage.heightAnchor, multiplier: 1)
         ])
+
+        NSLayoutConstraint.activate([
+            nameLabel.leadingAnchor.constraint(equalTo: pryanikImage.trailingAnchor, constant: 20),
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20),
+            nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ])
+
     }
     
     required init?(coder: NSCoder) {

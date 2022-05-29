@@ -13,7 +13,6 @@ class ItemListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupNavigationBar()
         
         tableView.register(HzViewCell.self, forCellReuseIdentifier: "hz")
@@ -44,7 +43,7 @@ class ItemListViewController: UITableViewController {
         
         if item.name == "hz" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "hz") as! HzViewCell
-            cell.nameLabel.text = item.data.text
+            cell.configureCell(item: item)
             return cell
         } else if item.name == "picture" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "picture") as! PictureViewCell
